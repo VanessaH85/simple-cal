@@ -76,11 +76,17 @@ if user_choice =="we":
         open_equation.close()
 
     elif menu == "/":
-      
+        try:
             open_equation = open("equation.txt","a")
             sum_of_div=division(number_1,number_2)
             print(sum_of_div)
             open_equation.write(str(number_1)+" / "+str(number_2)+" = "+str(sum_of_div)+"\n")
             open_equation.close()    
-       
+        except ZeroDivisionError:
+            open_equation = open("equation.txt","a") 
+            sum_of_div=0
+            print(sum_of_div)
+            open_equation.write(str(number_1)+" / "+str(number_2)+" = "+str(sum_of_div)+"\n")
+            open_equation.close()
+
 
