@@ -24,7 +24,7 @@ def division(number_1,number_2):
 #Request user choose to either enter two numbers and an operator or to read all of the equations from a new txt file
 user_choice=input ('''Select one of the following Options below:
                     we - write an equation
-                   
+                    re - read equations
                     :\n ''').lower()
 
 #If user chooses to enter two numbers and an operator, Display the answer to the equation. Every equation entered by the user is be written to a text file.
@@ -88,5 +88,18 @@ if user_choice =="we":
             print(sum_of_div)
             open_equation.write(str(number_1)+" / "+str(number_2)+" = "+str(sum_of_div)+"\n")
             open_equation.close()
+
+
+#if user chooses to read the equations from a new txt file, promt the user to input the name of the txt file and print out all of the equations.
+
+elif user_choice=="re":
+    file_name = input("Please enter the name of the file you'd like to use:\n")
+    try:      
+        file_scan=open(file_name,'r')
+        for line in file_scan:
+            print (line)
+    except FileNotFoundError:
+        print("The file that you are trying to open does not exist")
+         
 
 
